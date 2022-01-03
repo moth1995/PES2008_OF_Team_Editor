@@ -16,7 +16,9 @@ Until today this tool can do the following things
     Club teams 3 letter names
     Club teams data formation (such as captain kicker, strategy, attacking settings, position in the field, etc)
 -Export/Import CSV
+-Export formation data (as binary file)
 -Read PSU ps2 save games  (sooner more format)
+-Decrypt/Encrypt Option File
 
 It has support for the European version, remember always make backup of your OPTION FILE!!!
 
