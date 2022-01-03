@@ -73,11 +73,11 @@ def export_all_to_csv():
             players_ids=[*range(1, first_unused, 1)]+[*range(first_edited_id, first_edited_id + total_edit, 1)]
         all_data=[]
         for player in players_ids:
-            all_data.append(get_stats(player, of, extra_stats_check.get()))
+            all_data.append(get_stats(player, of))
         root.new_file = filedialog.asksaveasfile(initialdir=".",title="Create your CSV file", mode='w', filetypes=(("CSV files","*.csv"),("All files", "*")), defaultextension=".csv")
         if root.new_file is None: # asksaveasfile return `None` if dialog closed with "cancel".
             return
-        if write_csv(root.new_file.name, all_data, extra_stats_check.get()):
+        if write_csv(root.new_file.name, all_data):
             messagebox.showinfo(title=appname,message="CSV file created!")
         else:
             messagebox.showerror(title=appname,message="Error while creating CSV file, please run as admin")
@@ -87,11 +87,11 @@ def export_all_to_csv():
         for player in players_ids:
             if player==0:
                 continue
-            all_data.append(get_stats(player, of, extra_stats_check.get()))
+            all_data.append(get_stats(player, of))
         root.new_file = filedialog.asksaveasfile(initialdir=".",title="Create your CSV file", mode='w', filetypes=(("CSV files","*.csv"),("All files", "*")), defaultextension=".csv")
         if root.new_file is None: # asksaveasfile return `None` if dialog closed with "cancel".
             return
-        if write_csv(root.new_file.name, all_data, extra_stats_check.get()):
+        if write_csv(root.new_file.name, all_data):
             messagebox.showinfo(title=appname,message="CSV file created!")
         else:
             messagebox.showerror(title=appname,message="Error while creating CSV file, please run as admin")
@@ -102,11 +102,11 @@ def export_all_to_csv():
         for player in players_ids:
             if player==0:
                 continue
-            all_data.append(get_stats(player, of, extra_stats_check.get()))
+            all_data.append(get_stats(player, of))
         root.new_file = filedialog.asksaveasfile(initialdir=".",title="Create your CSV file", mode='w', filetypes=(("CSV files","*.csv"),("All files", "*")), defaultextension=".csv")
         if root.new_file is None: # asksaveasfile return `None` if dialog closed with "cancel".
             return
-        if write_csv(root.new_file.name,all_data, extra_stats_check.get()):
+        if write_csv(root.new_file.name,all_data):
             messagebox.showinfo(title=appname,message="CSV file created!")
         else:
             messagebox.showerror(title=appname,message="Error while creating CSV file, please run as admin")
@@ -265,9 +265,6 @@ csv_team_cmb.current(0)
 extra_players_check = IntVar()
 extra_players_check.set(1)
 extra_players = Checkbutton(csv_tab, text="Include Unused and Edited players", variable=extra_players_check)
-extra_stats_check = IntVar()
-extra_stats_check.set(0)
-extra_stats_check_btn = Checkbutton(csv_tab, text="Include extra/unknow stats (only for testing)", variable=extra_stats_check)
 create_csv_btn = Button(csv_tab, text="Create CSV", command=lambda: export_all_to_csv())
 import_csv_btn = Button(csv_tab, text="Import CSV", command=lambda: import_all_from_csv())
 
@@ -302,7 +299,6 @@ thanks_lbl.place(x=480, y=560)
 
 csv_team_cmb.place(x=280, y=120)
 extra_players.place(x=280, y=150)
-extra_stats_check_btn.place(x=280, y=170)
 create_csv_btn.place(x=300, y=200)
 import_csv_btn.place(x=380, y=200)
 # Extra tab placing

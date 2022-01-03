@@ -1,8 +1,7 @@
 import csv
 
 
-def create_csv(filename, extra_stats_flag):
-    extra_stats_flag = False
+def create_csv(filename):
     #creamos el csv
     try:
         with open(filename, 'w',newline='', encoding='utf-8') as f:
@@ -60,9 +59,6 @@ def create_csv(filename, extra_stats_flag):
             
             "NATIONAL TEAM", "CLUB TEAM", "SPECIAL FLAG",
             ])
-            # Rare stats found on PES Editor Source code
-            if extra_stats_flag:
-                csv_columns+=["ASW ?", "STAT X", "B F FEINT", "GK KICK", "STAT EDITED"]
             
             csv_escribir.writerow(csv_columns)
         return filename
@@ -72,8 +68,8 @@ def create_csv(filename, extra_stats_flag):
 
 
 
-def write_csv(filename, players, extra_stats_flag):
-    file=create_csv(filename, extra_stats_flag)
+def write_csv(filename, players):
+    file=create_csv(filename)
     if file:
         with open(file, 'a',newline='', encoding='utf-8') as f:
             csv_out=csv.writer(f)

@@ -1274,58 +1274,6 @@ def load_csv(of, file):
                         #print(player_id, csv_tape)
                         set_value(of, player_id, 102-48, 4, 1, csv_tape)
 
-                    # Rare stats
-                    if 'ASW ?' in list_of_column_names:
-                        csv_cbwL=int(row[list_of_column_names.index('ASW ?')])
-                        # Here we limit the stat to already know konami range
-                        #if csv_cbwL<0:
-                        #    csv_cbwL=0
-                        #elif csv_cbwL>1:
-                        #    csv_cbwL=1
-                        #print(player_id, csv_cbwL)
-                        set_value(of, player_id, 11, 14, 1, csv_cbwL)
-                        
-                    if 'STAT X' in list_of_column_names:
-                        csv_statX=int(row[list_of_column_names.index('STAT X')]) - 1
-                        # Here we limit the stat to already know konami range
-                        #if csv_statX<=0:
-                        #    csv_statX=1
-                        #elif csv_statX>99:
-                        #    csv_statX=99
-                        #print(player_id, csv_statX)
-                        set_value(of, player_id, 27, 5, 127, csv_statX)
-
-                    if 'B F FEINT' in list_of_column_names:
-                        csv_bff=int(row[list_of_column_names.index('B F FEINT')])
-                        # Here we limit the stat to already know konami range
-                        #if csv_bff<0:
-                        #    csv_bff=0
-                        #elif csv_bff>1:
-                        #    csv_bff=1
-                        #print(player_id, csv_bff)
-                        set_value(of, player_id, 20, 6, 1, csv_bff)
-
-                    if 'GK KICK' in list_of_column_names:
-                        csv_gkKick=int(row[list_of_column_names.index('GK KICK')])
-                        # Here we limit the stat to already know konami range
-                        #if csv_gkKick<0:
-                        #    csv_gkKick=0
-                        #elif csv_gkKick>1:
-                        #    csv_gkKick=1
-                        #print(player_id, csv_gkKick)
-                        set_value(of, player_id, 20, 7, 1, csv_gkKick)
-
-                    if 'STAT EDITED' in list_of_column_names:
-                        csv_statEdited=int(row[list_of_column_names.index('STAT EDITED')])
-                        # Here we limit the stat to already know konami range
-                        #if csv_statEdited<0:
-                        #    csv_statEdited=0
-                        #elif csv_statEdited>1:
-                        #    csv_statEdited=1
-                        #print(player_id, csv_statEdited)
-                        set_value(of, player_id, 39, 7, 1, csv_statEdited)
-
-
                     # Here's a template in future case i need to add a new stat (which is very likely)
                     #if '' in list_of_column_names:
                         #csv_ = int(row[list_of_column_names.index('')])

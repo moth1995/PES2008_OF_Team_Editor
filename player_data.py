@@ -150,8 +150,7 @@ def set_shirt_name(of, player_id, new_shirt_name):
             of.data[shirt_name_address + i] = byte
 
 
-def get_stats(player_id, of, rare_stats_flag):
-    rare_stats_flag = False
+def get_stats(player_id, of):
     # Basic seetings
     player_name, player_shirt_name = get_names(player_id, of)
     player_callName = get_value(of, player_id, 1, 0, 65535, "Callname ID")
@@ -709,11 +708,6 @@ def get_stats(player_id, of, rare_stats_flag):
     player_national_team, player_club, player_special_flag,
     
     ]
-    """
-    if rare_stats_flag:
-         # Rare stats found on PES Editor Source code
-        list_csv+= [player_cbwL, player_statX, player_bff, player_gkKick, player_statEdited]
-    """
     return list_csv
 
 #players address and ids
