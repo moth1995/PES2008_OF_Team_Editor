@@ -4,6 +4,7 @@ from editor.option_file import OptionFile
 #of_file_location = "KONAMI-WIN32PES4OPT"
 of_file_location = r"BESLES-54913P2K8OPT"
 of_file_location = r"PES2008OPTION FILE.psu"
+of_file_location = r"PES2008OPTION FILE.xps"
 # Load/decrypt the option file
 print("Loading option file...")
 of = OptionFile(of_file_location)
