@@ -58,7 +58,7 @@ class OptionFile:
         if self.extension == "psu":
             self.header_data, self.data = file_contents[:file_size - self.of_byte_length], file_contents[file_size - self.of_byte_length:]
         elif self.extension == "xps":
-            pass
+            self.header_data, self.data = file_contents[:file_size - self.of_byte_length -4], file_contents[file_size - self.of_byte_length-4:-4]
         else:
             self.data = file_contents
         self.decrypt()
@@ -85,7 +85,12 @@ class OptionFile:
             of_file.write(self.header_data)
             of_file.write(self.data)
         elif self.extension == "xps":
-            pass
+            of_file.write(self.header_data)
+            of_file.write(self.data)
+            of_file.write(0)
+            of_file.write(0)
+            of_file.write(0)
+            of_file.write(0)
         else:
             of_file.write(self.data)
         
