@@ -26,14 +26,14 @@ def swap_teams_data(data,team_a_id,team_b_id, kits_flag):
     team_a_jersey_number = read_data(data,clubs_jersey_number_offset+(team_a_id*clubs_jersey_number_size),clubs_jersey_number_size)
     team_b_jersey_number = read_data(data,clubs_jersey_number_offset+(team_b_id*clubs_jersey_number_size),clubs_jersey_number_size)
 
-    team_a_name=read_data(data,clubs_names_offset+(team_a_id*clubs_names_distance),clubs_names_size)
-    team_b_name=read_data(data,clubs_names_offset+(team_b_id*clubs_names_distance),clubs_names_size)
+    team_a_name=read_data(data,clubs_names_offset+(team_a_id*clubs_names_size),clubs_names_size)
+    team_b_name=read_data(data,clubs_names_offset+(team_b_id*clubs_names_size),clubs_names_size)
 
     #print(team_a_name.decode('utf8'))
     #print(team_b_name.decode('utf8'))
 
-    team_a_three_letter_name=read_data(data,three_letter_clubs_name_offset+(team_a_id*clubs_names_distance),three_letter_clubs_name_size)
-    team_b_three_letter_name=read_data(data,three_letter_clubs_name_offset+(team_b_id*clubs_names_distance),three_letter_clubs_name_size)
+    team_a_three_letter_name=read_data(data,three_letter_clubs_name_offset+(team_a_id*clubs_names_size),three_letter_clubs_name_size)
+    team_b_three_letter_name=read_data(data,three_letter_clubs_name_offset+(team_b_id*clubs_names_size),three_letter_clubs_name_size)
 
     #print(team_a_three_letter_name.decode('utf8'))
     #print(team_b_three_letter_name.decode('utf8'))
@@ -56,15 +56,15 @@ def swap_teams_data(data,team_a_id,team_b_id, kits_flag):
         data[clubs_jersey_number_offset+(team_a_id*clubs_jersey_number_size) + i] = byte
 
     for i, byte in enumerate(team_a_name):
-        data[clubs_names_offset+(team_b_id*clubs_names_distance) + i] = byte
+        data[clubs_names_offset+(team_b_id*clubs_names_size) + i] = byte
     for i, byte in enumerate(team_b_name):
-        data[clubs_names_offset+(team_a_id*clubs_names_distance) + i] = byte
+        data[clubs_names_offset+(team_a_id*clubs_names_size) + i] = byte
 
 
     for i, byte in enumerate(team_a_three_letter_name):
-        data[three_letter_clubs_name_offset+(team_b_id*clubs_names_distance) + i] = byte
+        data[three_letter_clubs_name_offset+(team_b_id*clubs_names_size) + i] = byte
     for i, byte in enumerate(team_b_three_letter_name):
-        data[three_letter_clubs_name_offset+(team_a_id*clubs_names_distance) + i] = byte
+        data[three_letter_clubs_name_offset+(team_a_id*clubs_names_size) + i] = byte
 
     for i, byte in enumerate(team_a_formation_data):
         data[clubs_formation_data_offset+(team_b_id*formation_data_size) + i] = byte
@@ -123,4 +123,4 @@ def swap_nations_data(data,team_a_id,team_b_id, kits_flag):
     return True
 
 #Offsets definition
-clubs_names_distance = 88
+clubs_names_size = 88
